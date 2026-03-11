@@ -1,0 +1,48 @@
+# ask for name/store name and welcxome player
+
+Name = input("WELCOME TO ROCK PAPER SCISSORS!, please enter your name: ").lower()
+
+# Users can optionally read the instructions before starting to play.
+
+instructions_response = input("Hello " + Name + " :P,  would you like to see the game instructions? ").lower()
+if instructions_response == "yes":
+    print("--blah blah blah--")
+elif instructions_response == "no":
+    print("no instructions? very well.. ")
+
+# round setup- Users can either choose the number of rounds or they can opt for infinite mode.
+rounds_input = input("How many rounds? Enter digits or 'xxx' for infinite mode: ").lower()
+infinite_mode = False
+target_rounds = 0
+
+if rounds_input == 'xxx':
+    infinite_mode = True
+    print("Infinite mode activated! Type 'xxx' anytime to quit :)")
+else:
+    target_rounds = int(rounds_input)
+    print(f"Goal set to {target_rounds} rounds!")
+
+# Game Tracking
+history = []
+stats = {"won": 0, "lost": 0, "tied": 0}
+current_round = 0
+
+# make game loop and make sure rounds are correctly done
+options = ["rock", "paper", "scissors"]
+while infinite_mode or current_round < target_rounds:
+    current_round += 1
+    print(f"\n --Round {current_round}--")
+
+    user_choice = input("Please Choose Rock (R), Paper (P), Scissors (S) or XXX to quit").lower()
+    # If users press the exit code ‘xxx’ or play the requested number of rounds, then the game should end.
+    if user_choice == "xxx":
+        break
+
+
+
+# When the game ends, users should be able to choose to see their game history.
+# At the end of the game, the basic stats should be displayed (percentage won, lost, and tied).
+
+
+# During the game, users should be able to type either the full word (rock / paper / scissors) or the first letter of the word (R / P / S) to indicate their choice.
+
