@@ -1,16 +1,16 @@
 import random
 
-# --- Get the player's name and make it look nice with a capital letter ---
+#Get the player's name and make it look nice with a capital letter 
 Name = input("WELCOME TO ROCK PAPER SCISSORS!, please enter your name: ").title()
 
-# --- Ask if they need help; 'lower' makes sure 'YES' or 'Yes' both work ---
+# Ask if they need help; 'lower' makes sure 'YES' or 'Yes' both work
 instructions_response = input(f"Hello {Name} :P, would you like to see the game instructions? ").lower()
 if instructions_response == "yes":
     print("-- Paper beats Rock, Rock beats Scissors, Scissors beats Paper --")
 elif instructions_response == "no":
     print("No instructions? Very well.. ")
 
-# --- Setting up how many rounds to play ---
+#Setting up how many rounds to play
 rounds_input = input("How many rounds? Enter digits or 'xxx' for infinite mode: ").lower()
 infinite_mode = False
 target_rounds = 0
@@ -24,13 +24,13 @@ else:
     target_rounds = int(rounds_input)
     print(f"Goal set to {target_rounds} rounds!")
 
-# --- Creating 'buckets' to store our scores and history ---
+# store our scores and history
 history = []
 stats = {"won": 0, "lost": 0, "tied": 0}
 current_round = 0
 options = ["rock", "paper", "scissors"]
 
-# --- This loop keeps the game running round after round ---
+# This loop keeps the game running round after round 
 while infinite_mode or current_round < target_rounds:
     current_round += 1
     print(f"\n --Round {current_round}--")
@@ -61,7 +61,7 @@ while infinite_mode or current_round < target_rounds:
     comp_choice = random.choice(options)
     print(f"Computer went with: {comp_choice}")
 
-    # --- Check who won using the game rules ---
+    # Check who won using the game rules
     if user_choice == comp_choice:
         result = "tied"
         print("It's a draw!")
@@ -78,7 +78,7 @@ while infinite_mode or current_round < target_rounds:
     stats[result] += 1
     history.append(f"Round {current_round}: {user_choice} vs {comp_choice} -> {result}")
 
-# --- End of the game: Showing the results ---
+# End of the game: Showing the results
 total_played = stats["won"] + stats["lost"] + stats["tied"]
 
 # Only show stats if we actually played at least one round
